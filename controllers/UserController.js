@@ -1,6 +1,11 @@
 const User = require("../models/User");
 
 class UserController {
+	static findAll(req, res) {
+		const users = User.findAll();
+		return res.json(users);
+	}
+
 	static create(req, res) {
 		const { name, email } = req.body;
 
@@ -14,11 +19,6 @@ class UserController {
 
 		const user = User.create({ name, email });
 		return res.status(201).json(user);
-	}
-
-	static findAll(req, res) {
-		const users = User.findAll();
-		return res.json(users);
 	}
 
 	static findId(req, res) {
