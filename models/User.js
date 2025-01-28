@@ -18,11 +18,12 @@ const users = [
 
 class User {
 	static create(data) {
-		users.push({
+		const user = {
 			id: users.length + 1,
 			...data,
-		});
-		return data;
+		};
+		users.push(user);
+		return user;
 	}
 
 	static findId(id) {
